@@ -1,10 +1,9 @@
-import React, { Component , useRef} from 'react';
+import React, { Component } from 'react';
 import CounterGroup from './CounterGroup';
 
 class MultiCounter extends Component {
     constructor(props) {
         super(props);
-        const counterRef = React.createRef();
 
         this.state = {
             size: 0,
@@ -24,7 +23,8 @@ class MultiCounter extends Component {
     }
 
     resetCounters = () => {
-       console.log(this.counterRef);
+        this.refs.child.resetCounters();
+        // console.log(this.refs);
     }
 
     render() {
@@ -37,7 +37,7 @@ class MultiCounter extends Component {
                 </label>
 
                 <div>The Sum: {sum}</div>
-                <CounterGroup size={size} sum={sum} onChangeSum={this.onChangeSum.bind(this)} ref={this.counterRef}/>
+                <CounterGroup size={size} sum={sum} onChangeSum={this.onChangeSum.bind(this)} ref="child" />
             </div>
         );
     }

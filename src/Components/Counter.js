@@ -1,4 +1,4 @@
-import React, { Component, useRef } from 'react';
+import React, { Component } from 'react';
 
 export default class Counter extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ export default class Counter extends Component {
     }
 
     resetCounters = () => {
-        
+        this.setState({ number: 0 });
     }
 
     render() {
