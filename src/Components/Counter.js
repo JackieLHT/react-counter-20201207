@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 
 export default class Counter extends Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
-            number: 0
+            number: 0,
         };
     }
 
-    onIncrease = () => {
+    onIncrease = (sum) => {
         this.setState((prevState) => ({ number: prevState.number + 1 }))
+        this.props.onChangeSum(this.props.sum + 1);
     }
 
-    onDecrease = () => {
+    onDecrease = (sum) => {
         this.setState((prevState) => ({ number: prevState.number - 1 }))
+        this.props.onChangeSum(this.props.sum - 1);
+    }
+
+    resetCounters = () => {
+        
     }
 
     render() {
